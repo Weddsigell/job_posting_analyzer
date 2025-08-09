@@ -44,10 +44,8 @@ def get_statistic_sj(lang):
                 
     average_salary = sum(average_salary) / len(average_salary)
     result = {
-        lang: {
-            "vacancies_found": vacancies_found,
-            "vacancies_processed": vacancies_processed,
-            "average_salary": int(average_salary)
-        }
+        "vacancies_found": vacancies_found,
+        "vacancies_processed": vacancies_processed,
+        "average_salary": int(average_salary)
     }
     return result
