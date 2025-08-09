@@ -7,4 +7,5 @@ requires-python = ">=3.12.6"
 dependencies = [
     "environs>=14.2.0",
     "requests>=2.32.4",
+    "terminaltables>=3.1.10",
 ]
