@@ -6,12 +6,17 @@ env = Env()
 env.read_env()
 
 
+MOSCOW = 1
+MONTH = 30
+DEVELOPER = 96
+
+
 def fetch_vacancy_sj(lang: str):
     url= 'https://api.superjob.ru/2.0/vacancies/'
     payload = {
-        'town': 4,
-        'period': 30,
-        'catalogues': 48,
+        'town': MOSCOW,
+        'period': MONTH,
+        'catalogues': DEVELOPER,
         'keyword': lang
     }
     headers = {

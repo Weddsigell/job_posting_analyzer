@@ -3,12 +3,17 @@ from itertools import count
 from salary import predict_salary_hh
 
 
+MOSCOW = 1
+MONTH = 30
+DEVELOPER = 96
+
+
 def fetch_vacancy_hh(lang: str):
     url = 'https://api.hh.ru/vacancies'
     payload = {
-        'professional_role': 96,
-        'area': 1,
-        'period': 30,
+        'professional_role': DEVELOPER,
+        'area': MOSCOW,
+        'period': MONTH,
         'text': lang
     }
     
