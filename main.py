@@ -8,14 +8,14 @@ def create_table(statistics: dict, title: str):
     headers = ['Язык программирования', 'Вакансий найдено', 'Вакансий обработано', 'Средняя зарплата']
     table = AsciiTable([headers], title)
     
-    for lang in statistics.keys():
+    for lang, value in statistics.items():
         table.table_data.append([
-            str(lang),
-            str(statistics[lang]['vacancies_found']),
-            str(statistics[lang]['vacancies_processed']),
-            str(statistics[lang]['average_salary']),
+            lang,
+            str(value['vacancies_found']),
+            str(value['vacancies_processed']),
+            str(value['average_salary']),
         ]) 
-        
+
     return table.table
 
 
@@ -25,7 +25,7 @@ def main():
         'JavaScript',
         'C#',
         'C++',
-    ]    
+    ]
     statistics_hh = {}
     statistics_sj = {}
     

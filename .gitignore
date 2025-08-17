@@ -12,3 +12,4 @@ wheels/
 
 # Media
 media/
+.DS_Store
