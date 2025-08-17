@@ -40,6 +40,6 @@ def get_statistic_hh(lang):
     result = {
         "vacancies_found": vacancies_found,
         "vacancies_processed": vacancies_processed,
-        "average_salary": int(average_salary)
+        "average_salary": average_salary
     }
     return result

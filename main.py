@@ -11,9 +11,9 @@ def create_table(statistics: dict, title: str):
     for lang, value in statistics.items():
         table.table_data.append([
             lang,
-            str(value['vacancies_found']),
-            str(value['vacancies_processed']),
-            str(value['average_salary']),
+            value['vacancies_found'],
+            value['vacancies_processed'],
+            value['average_salary'],
         ]) 
 
     return table.table
@@ -21,10 +21,10 @@ def create_table(statistics: dict, title: str):
 
 def main():
     languages = [
-        'Python',
-        'JavaScript',
+        # 'Python',
+        # 'JavaScript',
         'C#',
-        'C++',
+        # 'C++',
     ]
     statistics_hh = {}
     statistics_sj = {}

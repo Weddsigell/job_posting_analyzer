@@ -46,6 +46,6 @@ def get_statistic_sj(lang):
     result = {
         "vacancies_found": vacancies_found,
         "vacancies_processed": vacancies_processed,
-        "average_salary": int(average_salary)
+        "average_salary": average_salary
     }
     return result
