@@ -11,7 +11,7 @@ MONTH = 30
 DEVELOPER = 96
 
 
-def fetch_vacancy_sj(lang: str):
+def fetch_vacancies_sj(lang: str):
     url= 'https://api.superjob.ru/2.0/vacancies/'
     payload = {
         'town': MOSCOW,
@@ -38,19 +38,19 @@ def fetch_vacancy_sj(lang: str):
 def get_statistic_sj(lang):
     vacancies_found = 0
     vacancies_processed = 0
-    average_salary = []
+    average_salaries = []
     
-    for vacancy in fetch_vacancy_sj(lang):      
+    for vacancy in fetch_vacancies_sj(lang):      
         vacancies_found += 1
         salary = predict_salary_sj(vacancy)
         if salary:
-            average_salary.append(salary)
+            average_salaries.append(salary)
             vacancies_processed += 1   
                 
-    average_salary = sum(average_salary) / len(average_salary)
+    average_salary = sum(average_salaries) / len(average_salaries)
     result = {
         "vacancies_found": vacancies_found,
         "vacancies_processed": vacancies_processed,
-        "average_salary": average_salary
+        "average_salaries": average_salary
     }
     return result
