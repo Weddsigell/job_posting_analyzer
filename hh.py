@@ -41,7 +41,10 @@ def get_statistic_hh(lang):
             average_salaries.append(salary)
             vacancies_processed += 1   
                 
-    average_salary = sum(average_salaries) / len(average_salaries)
+    average_salary = 0
+    if len(average_salaries) != 0:
+        average_salary = sum(average_salaries) / len(average_salaries)
+
     result = {
         "vacancies_found": vacancies_found,
         "vacancies_processed": vacancies_processed,
