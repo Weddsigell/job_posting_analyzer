@@ -23,23 +23,28 @@ def fetch_vacancies_hh(lang: str):
         page_response.raise_for_status()
         page_response = page_response.json()
 		
-        yield from page_response['items']
+        yield from page_response['items']   
         
         if page >= page_response['pages']:
-            break
+            return page_response['found'] 
 
 
 def get_statistic_hh(lang):
     vacancies_found = 0
-    vacancies_processed = 0
     average_salaries = []
-    
-    for vacancy in fetch_vacancies_hh(lang):      
-        vacancies_found += 1
+    vacanies = fetch_vacancies_hh(lang)
+    while True:
+        try:
+            vacancy = next(vacanies)
+        except StopIteration as e:
+            vacancies_found = e.value
+            break
+
         salary = predict_salary_hh(vacancy)
         if salary:
             average_salaries.append(salary)
-            vacancies_processed += 1   
+    
+    vacancies_processed = len(average_salaries)
                 
     average_salary = 0
     if len(average_salaries) != 0:

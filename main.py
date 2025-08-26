@@ -2,6 +2,9 @@ from pprint import pprint
 from hh import get_statistic_hh
 from sj import get_statistic_sj
 from terminaltables import AsciiTable
+from environs import Env
+env = Env()
+env.read_env()
 
 
 def create_table(statistics: dict, title: str):
@@ -20,18 +23,19 @@ def create_table(statistics: dict, title: str):
 
 
 def main():
+    sj_key = env.str('SJ_KEY')
     languages = [
-        # 'Python',
-        # 'JavaScript',
+        'Python',
+        'JavaScript',
         'C#',
-        # 'C++',
+        'C++',
     ]
     statistics_hh = {}
     statistics_sj = {}
     
     for lang in languages:
         statistics_hh[lang] = get_statistic_hh(lang)
-        statistics_sj[lang] = get_statistic_sj(lang)
+        statistics_sj[lang] = get_statistic_sj(lang, sj_key)
     
     print(create_table(statistics_hh,'HeadHunter Moscow'))
     print(create_table(statistics_sj, 'SuperJob Moscow'))
