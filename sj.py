@@ -3,9 +3,9 @@ from itertools import count
 from salary import predict_salary_sj
 
 
-MOSCOW = 1
+MOSCOW = 4
 MONTH = 30
-DEVELOPER = 96
+DEVELOPER = 48
 
 
 def fetch_vacancies_sj(lang: str, sj_key: str):
