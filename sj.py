@@ -50,7 +50,7 @@ def get_statistic_sj(lang, sj_key):
     vacancies_processed = len(average_salaries)
                 
     average_salary = 0
-    if len(average_salaries) != 0:
+    if not len(average_salaries):
         average_salary = sum(average_salaries) / len(average_salaries)
 
     result = {
