@@ -11,12 +11,12 @@ def create_table(statistics: dict, title: str):
     headers = ['Язык программирования', 'Вакансий найдено', 'Вакансий обработано', 'Средняя зарплата']
     table = AsciiTable([headers], title)
     
-    for lang, value in statistics.items():
+    for lang, statistic_data in statistics.items():
         table.table_data.append([
             lang,
-            value['vacancies_found'],
-            value['vacancies_processed'],
-            value['average_salary'],
+            statistic_data['vacancies_found'],
+            statistic_data['vacancies_processed'],
+            statistic_data['average_salary'],
         ]) 
 
     return table.table
